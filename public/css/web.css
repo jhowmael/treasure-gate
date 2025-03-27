@@ -1,0 +1,150 @@
+   /* Estilo para garantir que o rodapé fique no final da tela */
+   html,
+   body {
+       height: 100%;
+       margin: 0;
+       background-color: gray;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+
+   .content {
+       min-height: 100vh;
+       display: flex;
+       flex-direction: column;
+   }
+
+   .flex-grow-1 {
+       flex: 1;
+   }
+
+   h1 {
+       text-align: center;
+       color: #2c3e50;
+       font-size: 2.5rem;
+       font-weight: 600;
+       margin-bottom: 30px;
+   }
+
+   .ticker-container {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+       gap: 20px;
+       padding: 20px;
+   }
+.card{
+   background-color: rgba(33, 37, 41);
+   color:rgb(255, 255, 255);
+
+   }
+.card-body{
+
+   color : white;
+}
+   .btn {
+       margin-top : 10px;
+
+   }
+   .arbitrage-card {
+       background-color: rgba(33, 37, 41);
+       border-radius: 8px;
+       padding: 25px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       margin-top: 20px;
+       position: relative;
+       transition: transform 0.3s ease;
+   }
+
+   .arbitrage-card:hover {
+       transform: translateY(-5px);
+   }
+
+   .arbitrage-header {
+       font-size: 1.5rem;
+       font-weight: 700;
+       color:rgb(255, 255, 255);
+       margin-bottom: 15px;
+   }
+
+   .arbitrage-body {
+       font-size: 1rem;
+       color: #7f8c8d;
+       line-height: 1.6;
+   }
+
+   .arbitrage-profit {
+       font-size: 1.25rem;
+       font-weight: bold;
+   }
+
+   .positive {
+       color: #27ae60;
+   }
+
+   .negative {
+       color: #e74c3c;
+   }
+
+   .arbitrage-profit-percent {
+       position: absolute;
+       top: 15px;
+       right: 20px;
+       font-size: 1.1rem;
+       font-weight: bold;
+       color: #27ae60;
+   }
+
+   .error {
+       color: #e74c3c;
+       font-weight: bold;
+       text-align: center;
+       margin-top: 30px;
+   }
+
+   .loading {
+       text-align: center;
+       font-size: 1.2rem;
+       color: #3498db;
+   }
+
+   .button-link {
+       display: block;
+       text-align: center;
+       background-color: #2980b9;
+       color: white;
+       font-size: 1rem;
+       font-weight: bold;
+       text-decoration: none;
+       padding: 12px 25px;
+       border-radius: 30px;
+       margin-top: 20px;
+       transition: background-color 0.3s ease, transform 0.3s ease;
+   }
+
+   .button-link:hover {
+       background-color: #1c598d;
+       transform: scale(1.05);
+       color: white;
+   }
+
+   .button-link:active {
+       background-color: #1a4c75;
+   }
+   #finaciamento{
+       color : #e74c3c;
+   }
+
+   /* Responsive design */
+   @media (max-width: 768px) {
+       h1 {
+           font-size: 2rem;
+       }
+
+       .arbitrage-card {
+           padding: 15px;
+       }
+
+       .button-link {
+           font-size: 0.9rem;
+           padding: 10px 20px;
+       }
+   }
