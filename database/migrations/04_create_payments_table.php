@@ -16,11 +16,17 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('external_reference')->unique(); // ID da compra
-            $table->string('payer_email');
-            $table->string('payer_number');
+            $table->string('mercado_pago_payment_id', 255);
+            $table->string('external_reference'); // ID da compra
+            $table->string('payer_email', 255)->nullable();
+            $table->string('payer_number', 255)->nullable();
             $table->decimal('total_value', 10, 2);
-            $table->enum('status', ['pending', 'approved', 'rejected']);
+            $table->string('method', 255)->nullable();
+            $table->string('type', 255);
+            $table->dateTime('registered')->nullable();
+            $table->dateTime('approved');
+            $table->dateTime('deined');
+            $table->enum('status', ['pending', 'registered', 'approved', 'deined', 'error']);
             $table->timestamps();
         });
     }

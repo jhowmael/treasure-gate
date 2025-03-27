@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('phone', 16)->nullable();
             $table->string('profile_picture')->nullable();
             $table->boolean('premium')->default(0);
+            $table->string('premium_type')->default(0);
+            $table->string('premium_expired_days')->default(0);
             $table->rememberToken();
             $table->string('status', 16);
             $table->dateTime('registered');
