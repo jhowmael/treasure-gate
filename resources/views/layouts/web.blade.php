@@ -11,14 +11,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-
 </head>
+
+<style>
+
+
+</style>
 
 <body >
 <div class="flex">
     <!-- Sidebar -->
-    <aside class="bg-indigo-900 w-64 text-white p-4 space-y-6 fixed inset-y-0 left-0">
+    <aside id="sidebar" class="bg-indigo-950 w-64 text-white p-4 space-y-6 fixed inset-y-0 left-0">
         <!-- Logo -->
         <div class="text-2xl font-bold text-purple-400">ZILIANIX</div>
         
@@ -89,7 +92,7 @@
     const container = document.querySelector('.dark-toggle');
     toggle.addEventListener('change', () => {
         container.style.backgroundColor = toggle.checked ? '#1D1D41' : 'white';
-        document.body.style.backgroundColor = toggle.checked ? '#1D1D41' : 'white';
+        document.body.style.backgroundColor = toggle.checked ? '#12141D' : 'white';
       
     });
 </script>
@@ -106,8 +109,6 @@
             </li>
             </div>
             
-
-
         </div>
     </aside>
     </div>
@@ -118,8 +119,6 @@
     </div>
   
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
 </body>
 

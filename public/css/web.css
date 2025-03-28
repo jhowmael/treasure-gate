@@ -3,7 +3,7 @@
    body {
        height: 100%;
        margin: 0;
-       background-color: white;
+       background-color: #12141D;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    }
 
@@ -41,10 +41,14 @@
 
     background-color: rgba(49,46,129);
 }
+
+#sidebar{
+    background-color: #2A2D3E;
+}
    
 .sidebar{
 
-    background-color: #1D1D41;
+    
     color: white;
 
 }
@@ -57,7 +61,7 @@
 
    }
    .arbitrage-card {
-       background-color: rgba(49,46,129);
+       background-color: #2A2D3E;
        border-radius: 8px;
        padding: 25px;
        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -144,6 +148,13 @@
    #finaciamento{
        color : #e74c3c;
    }
+
+
+   .form-control{
+color: black;
+
+   }
+
 
    /* Responsive design */
    @media (max-width: 768px) {

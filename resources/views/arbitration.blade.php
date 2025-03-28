@@ -157,7 +157,7 @@
                                                         <div class="arbitrage-body">
                                                             <p class="flex items-center space-x-1 text-center"><img class="w-7 h-7" src="{{ asset('gate.io.svg') }}"alt="MEXC Logo"><strong>Volume Gate.io:</strong> ${GateV}USDT</p>
                                                             <p class="flex items-center space-x-1 text-center"><img class="w-7 h-7" src="{{ asset('mexc-logo.svg') }}"alt="MEXC Logo"><strong>Volume Mecx:</strong> ${MexcV} USDT</p>
-                                                            <p class="flex items-center space-x-1 text-center" id="finaciamento"><img class="w-7 h-7" src="{{ asset('mexc-logo.svg') }}" alt="MEXC Logo"> <strong>Taxa Finaciamento:</strong> ${fundingRatpercentage.toFixed(2)}%</p>
+                                                            <p class="flex items-center space-x-1 text-center" id="finaciamento"><img class="w-7 h-7" src="{{ asset('mexc-logo.svg') }}" alt="MEXC Logo"> <strong>Taxa Financiamento:</strong> ${fundingRatpercentage.toFixed(2)}%</p>
                                                             <a href="javascript:void(0);" onclick="openTwoWindowsAndSaveData(
                                                                 'https://www.gate.io/pt-br/trade/${gateioSymbol}', 
                                                                 'https://futures.mexc.com/pt-PT/exchange/${gateioSymbol}', 

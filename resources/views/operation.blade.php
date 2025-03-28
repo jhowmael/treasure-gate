@@ -3,25 +3,24 @@
 @section('content')
     <h1>Operação de Arbitragem</h1>
 
-    <div class="card" style="width: 350px; padding: 15px;">
+    <div class="arbitrage-card" style="width: 350px; padding: 15px;">
         <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-            <h3>Detalhes da Arbitragem</h3>
-            <span class="dot" id="statusDot"></span>
+        <p class="font-bold text-gray-50"><span id="currencyPairText"></span></p>
+        <span class="dot items-center" id="statusDot"></span>
         </div>
         <div class="card-body">
-            <p><strong>Par de Moedas:</strong> <span id="currencyPairText"></span></p>
 
             <!-- Formulário compactado para atualização dos preços -->
             <form id="updatePricesForm">
                 <div class="form-group">
-                    <label for="buyPriceEntry">Compra (Entrada) Gate.io:</label>
-                    <input type="number" id="buyPriceEntry" class="form-control" step="any" style="font-size: 14px;">
+                    <label class="flex items-center mb-2 mt-2 space-x-2 text-center" for="buyPriceEntry"><img class="w-7 mr-1 h-7" src="{{ asset('gate.io.svg') }}"alt="MEXC Logo">Compra (Entrada) Gate.io:</label>
+                    <input type="number" id="buyPriceEntry" class="form-control w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" step="any" style="font-size: 14px;">
                 </div>
                 <div class="form-group">
-                    <label for="sellPriceEntry">Venda (Entrada) MEXC:</label>
-                    <input type="number" id="sellPriceEntry" class="form-control" step="any" style="font-size: 14px;">
+                    <label class="flex items-center mb-2 mt-2 space-x-2 text-center" for="sellPriceEntry"><img class="w-7 mr-1 h-7" src="{{ asset('mexc-logo.svg') }}"alt="MEXC Logo">Venda (Entrada) MEXC:</label>
+                    <input type="number" id="sellPriceEntry" class="form-control form-control w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" step="any" style="font-size: 14px;" step="any" style="font-size: 14px;">
                 </div>
-                <button type="submit" class="btn btn-primary" style="font-size: 14px;">Atualizar</button>
+                <button type="submit" class="btn btn-primary mt-5 bg-purple-500 text-white py-2 px-6 rounded-lg" style="font-size: 14px;">Atualizar</button>
             </form>
 
             <div class="price-info mt-3">
@@ -52,7 +51,7 @@
                 <p id="arbitrageResult"></p>
             </div>
 
-            <button id="endOperationButton" class="btn btn-danger mt-3" style="font-size: 14px;">Encerrar Operação</button>
+            <button id="endOperationButton" class="btn btn-primary mt-2 bg-indigo-500 text-white py-2 px-4 rounded-lg">Encerrar Operação</button>
         </div>
     </div>
 
@@ -207,7 +206,7 @@
 
         function endOperation() {
             // Esconde o card da página
-            document.querySelector('.card').style.display = 'none';
+            document.querySelector('.arbitrage-card').style.display = 'none';
 
             alert('Operação encerrada. Aguardando nova arbitragem...');
 
