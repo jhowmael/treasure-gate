@@ -7,87 +7,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tickers</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/web.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
 </head>
 
-<body>
-    <div class="content d-flex flex-column">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}">TICKERS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Sobre nós</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('arbitration') ? 'active' : '' }}" href="{{ route('arbitration') }}">Arbitragem</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('operation') ? 'active' : '' }}" href="{{ route('operation') }}">Operação</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('signatures') ? 'active' : '' }}" href="{{ route('signatures') }}">Assinaturas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('help') ? 'active' : '' }}" href="{{ route('help') }}">Ajuda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contato</a>
-                        </li>
-                    </ul>
+<body >
+<div class="flex">
+    <!-- Sidebar -->
+    <aside class="bg-indigo-900 w-64 text-white p-4 space-y-6 fixed inset-y-0 left-0">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-purple-400">ZILIANIX</div>
+        
+        <!-- Menu -->
+        <ul class="space-y-4 mt-6">
+            <li class="py-2 px-4 rounded bg-purple-600 flex items-center">
+                <i class="fas fa-th-large mr-2"></i>
+                <a href="{{ route('home') }}">Dashboard</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-exchange-alt mr-2"></i>
+                <a href="{{ route('operation') }}">Operação</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-university mr-2"></i>
+                <a href="{{ route('arbitration') }}">Arbitragem</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-user mr-2"></i>
+                <a href="">Conta</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-cogs mr-2"></i>
+                <a href="">Configuração</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                <a href="">Segurança</a>
+            </li>
+            <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-question-circle mr-2"></i>
+                <a href="{{ route('help') }}">Central De Ajuda</a>
+            </li>
+        </ul>
+        <style>
+    input:checked~.dot {
+        transform: translateX(100%);
+    }
+    .toggle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+    }
+    .toggle-bg {
+        transition: background-color 0.3s ease-in-out;
+    }
+</style>
 
-                    <ul class="navbar-nav ms-auto">
-                        @guest
-                        <li class="nav-item">
-                            <a class="btn btn-light me-2" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-light" href="{{ route('register') }}">Registrar</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ auth()->user()->name }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
-                                @csrf
-                                <button type="submit" class="btn btn-outline-light">Logout</button>
-                            </form>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
+<div class="toggle-bg">
+    <div class="flex flex-row items-center">
+        <label for="dark-toggle" class="flex items-center cursor-pointer">
+            <div class="mr-3 dark:text-white text-gray-900 font-medium">
+                Dark Mode
             </div>
-        </nav>
+            <div class="relative">
+                <input type="checkbox" name="dark-mode" id="dark-toggle" class="checkbox hidden">
+                <div class="dark-toggle block border-[1px] dark:border-white border-gray-900 w-14 h-8 rounded-full bg-white transition"></div>
+                <div class="dot absolute left-1 top-1 dark:bg-white bg-gray-800 w-6 h-6 rounded-full transition"></div>
+            </div>
+        </label>
+    </div>
+</div>
 
-        <div class="flex-grow-1">
-            <div class="container">
-                @yield('content')
+<script>
+    const toggle = document.getElementById('dark-toggle');
+    const container = document.querySelector('.dark-toggle');
+    toggle.addEventListener('change', () => {
+        container.style.backgroundColor = toggle.checked ? '#1D1D41' : 'white';
+        document.body.style.backgroundColor = toggle.checked ? '#1D1D41' : 'white';
+      
+    });
+</script>
+        
+        <!-- User Info -->
+        <div class="mt-auto flex items-center space-x-3 p-4 bg-[#292b3a] rounded-lg">
+            
+            <div>
+                <p class="text-sm font-medium">Arthur Ziliani</p>
+                <p class="text-xs text-gray-400">Iniciante</p>
+                <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+                <i class="fas fa-sign-out-alt mr-2"></i>
+                <a href="{{ route('help') }}">SAIR</a>
+            </li>
             </div>
+            
+
+
         </div>
-
-        <!-- Rodapé -->
-        <footer class="bg-dark text-white text-center py-3 mt-auto">
-            <div class="container">
-                <p class="mb-0">&copy; {{ date('Y') }} TICKERS. Todos os direitos reservados.</p>
-                <p class="mb-0">
-                    <a href="{{ route('contact') }}" class="text-white">Contato</a> |
-                </p>
-            </div>
-        </footer>
+    </aside>
+    </div>
+    <div class="flex-1 p-6 ml-64">
+        <div class="container">
+            @yield('content')
+        </div>
+    </div>
+  
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>

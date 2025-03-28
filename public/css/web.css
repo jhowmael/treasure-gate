@@ -3,7 +3,7 @@
    body {
        height: 100%;
        margin: 0;
-       background-color: gray;
+       background-color: white;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    }
 
@@ -36,6 +36,18 @@
    color:rgb(255, 255, 255);
 
    }
+
+.card-login{
+
+    background-color: rgba(49,46,129);
+}
+   
+.sidebar{
+
+    background-color: #1D1D41;
+    color: white;
+
+}
 .card-body{
 
    color : white;
@@ -45,7 +57,7 @@
 
    }
    .arbitrage-card {
-       background-color: rgba(33, 37, 41);
+       background-color: rgba(49,46,129);
        border-radius: 8px;
        padding: 25px;
        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -67,7 +79,7 @@
 
    .arbitrage-body {
        font-size: 1rem;
-       color: #7f8c8d;
+       color: white;
        line-height: 1.6;
    }
 
@@ -109,7 +121,7 @@
    .button-link {
        display: block;
        text-align: center;
-       background-color: #2980b9;
+       background-color: rgba(124, 58, 237) ;
        color: white;
        font-size: 1rem;
        font-weight: bold;
@@ -121,7 +133,7 @@
    }
 
    .button-link:hover {
-       background-color: #1c598d;
+       background-color: rgba(99, 46, 190, 1);
        transform: scale(1.05);
        color: white;
    }

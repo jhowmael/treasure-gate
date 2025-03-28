@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-    <h1>A firma</h1>
+    <h1 class="text-3xl font-bold mb-6">Arbitragem</h1>
 
     <div id="arbitrage-results" class="ticker-container">
         <!-- Os resultados de arbitragem serão exibidos aqui -->
@@ -98,16 +98,51 @@
 
                                 responseGateio.forEach(function(tickerGateio) {
                                     let gateioSymbol = tickerGateio.currency_pair.trim().toUpperCase();
-
                                     if (macxData[gateioSymbol]) {
                                         let buyGateio = tickerGateio.lowest_ask;
                                         let sellMacx = macxData[gateioSymbol].bid1;
-                                        let base_volume = tickerGateio.base_volume;
-                                        let volume24 = macxData[gateioSymbol].volume24;
+                                        let base_volume = parseFloat(tickerGateio.base_volume);
+                                        let volume24 = parseFloat(macxData[gateioSymbol].volume24);
                                         let fundingRatpercentage = macxData[gateioSymbol].fundingRate * 100;
 
                                         let profitGateioToMacx = sellMacx - buyGateio;
 
+                                       let Pair = gateioSymbol
+
+                                        Pair = Pair.replace("_","->")
+
+                                        let VolumeGate = new Intl.NumberFormat('en-US', {
+                                                     style: 'currency',
+                                                    currency: 'USD',  // Definindo a moeda como USD
+                                                    minimumFractionDigits: 2,  // Exibe pelo menos 2 casas decimais
+                                                    maximumFractionDigits: 2   // Limita a 2 casas decimais
+                                        }).format(base_volume);
+
+                                        let GateV = VolumeGate;  // Valor vindo da sua variável
+
+                                            // Primeiro, substituímos a vírgula por um marcador temporário
+                                            GateV = GateV.replace(/,/g, 'TEMP_COMMA');
+
+                                            // Agora, substituímos o ponto por vírgula
+                                            GateV = GateV.replace(/\./g, ',');
+                                            GateV = GateV.replace(/TEMP_COMMA/g, '.');
+
+                                        
+                                        let VolumeMexc = new Intl.NumberFormat('en-US', {
+                                                     style: 'currency',
+                                                    currency: 'USD',  // Definindo a moeda como USD
+                                                    minimumFractionDigits: 2,  // Exibe pelo menos 2 casas decimais
+                                                    maximumFractionDigits: 2   // Limita a 2 casas decimais
+                                        }).format(volume24);
+
+                                            let MexcV = VolumeMexc
+                                             // Primeiro, substituímos a vírgula por um marcador temporário
+                                             MexcV = MexcV.replace(/,/g, 'TEMP_COMMA');
+
+                                            // Agora, substituímos o ponto por vírgula
+                                            MexcV = MexcV.replace(/\./g, ',');
+                                            MexcV = MexcV.replace(/TEMP_COMMA/g, '.');
+                                        
                                         if (profitGateioToMacx > 0) {
                                             let arbitrageClassGateioToMacx = profitGateioToMacx > 0 ? 'positive' : 'negative';
                                             let profitPercentage = (profitGateioToMacx / buyGateio) * 100;
@@ -115,16 +150,14 @@
                                             if (profitPercentage >= 0.3 && profitPercentage <= 20) {
                                                 arbitrageResultsHTML += `
                                                     <div class="arbitrage-card">
-                                                        <div class="arbitrage-header">${tickerGateio.currency_pair}</div>
+                                                        <div class="arbitrage-header">${Pair}</div>
                                                         <div class="arbitrage-profit-percent ${arbitrageClassGateioToMacx}">
                                                             ${profitPercentage.toFixed(2)}%
                                                         </div>
                                                         <div class="arbitrage-body">
-                                                            <p><strong>Compra na Gate.io:</strong> ${buyGateio} USDT</p>
-                                                            <p><strong>Venda na Mecx :</strong> ${sellMacx} USDT</p>
-                                                            <p><strong>Volume Gate.io:</strong> ${base_volume} USDT</p>
-                                                            <p><strong>Volume Mecx:</strong> ${volume24} USDT</p>
-                                                            <p id="finaciamento"><strong>Mecx Taxa Finaciamento:</strong> ${fundingRatpercentage}%</p>
+                                                            <p class="flex items-center space-x-1 text-center"><img class="w-7 h-7" src="{{ asset('gate.io.svg') }}"alt="MEXC Logo"><strong>Volume Gate.io:</strong> ${GateV}USDT</p>
+                                                            <p class="flex items-center space-x-1 text-center"><img class="w-7 h-7" src="{{ asset('mexc-logo.svg') }}"alt="MEXC Logo"><strong>Volume Mecx:</strong> ${MexcV} USDT</p>
+                                                            <p class="flex items-center space-x-1 text-center" id="finaciamento"><img class="w-7 h-7" src="{{ asset('mexc-logo.svg') }}" alt="MEXC Logo"> <strong>Taxa Finaciamento:</strong> ${fundingRatpercentage.toFixed(2)}%</p>
                                                             <a href="javascript:void(0);" onclick="openTwoWindowsAndSaveData(
                                                                 'https://www.gate.io/pt-br/trade/${gateioSymbol}', 
                                                                 'https://futures.mexc.com/pt-PT/exchange/${gateioSymbol}', 
@@ -135,7 +168,7 @@
                                                                 '${base_volume}', 
                                                                 '${volume24}', 
                                                                 '${fundingRatpercentage}'
-                                                            )" class="button-link">Fazer Arbitragem</a>
+                                                            )" class="button-link mt-auto bg-purple-500 text-white py-2 px-4 rounded-lg">Fazer Arbitragem</a>
                                                         </div>
                                                     </div>
                                                 `;
