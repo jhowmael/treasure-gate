@@ -13,8 +13,12 @@ Route::get('/arbitration', [WebController::class, 'arbitration'])->name('arbitra
 Route::get('/operation', [WebController::class, 'operation'])->name('operation');
 Route::get('/about', [WebController::class, 'about'])->name('about');
 Route::get('/contact', [WebController::class, 'contact'])->name('contact');
-Route::get('/signatures', [WebController::class, 'signatures'])->name('signatures');
 Route::get('/help', [WebController::class, 'help'])->name('help');
+Route::get('/wallet', [WebController::class, 'wallet'])->name('wallet');
+Route::get('/account', [WebController::class, 'account'])->name('account');
+Route::get('/configurations', [WebController::class, 'configurations'])->name('configurations');
+Route::get('/security', [WebController::class, 'security'])->name('security');
+Route::get('/signatures', [WebController::class, 'signatures'])->name('signatures');
 
 Route::post('/login', [AcessController::class, 'login']);
 Route::get('/login', [AcessController::class, 'showLoginForm'])->name('login');

@@ -50,8 +50,8 @@
                 <p id="exitProfit"></p>
                 <p id="arbitrageResult"></p>
             </div>
-
-            <button id="endOperationButton" class="btn btn-primary mt-2 bg-indigo-500 text-white py-2 px-4 rounded-lg">Encerrar Operação</button>
+            <x-buttons.submit label="Enviar Formulário" id="endOperationButton" />
+            <!---<button id="endOperationButton" class="btn btn-primary mt-2 bg-indigo-500 text-white py-2 px-4 rounded-lg">Encerrar Operação</button>--->
         </div>
     </div>
 

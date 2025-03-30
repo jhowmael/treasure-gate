@@ -40,5 +40,24 @@ class WebController extends Controller
     {
         return view('help');
     }
+
+    public function wallet()
+    {
+        return view('wallet');
+    }
     
+    public function account()
+    {
+        return view('account');
+    }
+
+    public function configurations()
+    {
+        return view('configurations');
+    }
+
+    public function security()
+    {
+        return view('security');
+    }
 }
