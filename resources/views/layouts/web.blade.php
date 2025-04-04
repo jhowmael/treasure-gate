@@ -53,18 +53,29 @@
                     {{ request()->routeIs('account') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
                     <a href="account" class="block w-full"> <i class="fas fa-user mr-2"></i> Conta</a>
                 </li>
+                <li class="divider"></li>
                 <li class="py-2 px-4 rounded flex items-center 
                     {{ request()->routeIs('configurations') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
                     <a href="configurations" class="block w-full"> <i class="fas fa-cogs mr-2"></i> Configuração</a>
                 </li>
                 <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('security') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
-                    <a href="security" class="block w-full"> <i class="fas fa-shield-alt mr-2"></i> Segurança</a>
-                </li>
-                <li class="py-2 px-4 rounded flex items-center 
                     {{ request()->routeIs('help') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
-                    <a href="{{ route('help') }}" class="block w-full"> <i class="fas fa-question-circle mr-2"></i> Central De Ajuda</a>
+                    <a href="{{ route('help') }}" class="block w-full"> <i class="fas fa-question-circle mr-2"></i>Ajuda</a>
                 </li>
+                <div class="toggle-bg">
+                <div class="py-2 px-4 rounded flex items-center">
+                    <label for="dark-toggle" class="flex items-center cursor-pointer">
+                        <div class="mr-3 dark:text-white text-white-900 font-medium">
+                        <a href="" class="block w-full"> <i class="fas fa-moon mr-2"></i> Dark Mode</a>
+                        </div>
+                        <div class="relative">
+                            <input type="checkbox" name="dark-mode" id="dark-toggle" class="checkbox hidden">
+                            <div class="dark-toggle block border-[1px] dark:border-white border-gray-900 w-14 h-8 rounded-full bg-white transition"></div>
+                            <div class="dot absolute left-1 top-1 dark:bg-white bg-gray-800 w-6 h-6 rounded-full transition"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
             </ul>
             <style>
                 input:checked~.dot {
@@ -84,20 +95,7 @@
                 }
             </style>
 
-            <div class="toggle-bg">
-                <div class="flex flex-row items-center">
-                    <label for="dark-toggle" class="flex items-center cursor-pointer">
-                        <div class="mr-3 dark:text-white text-gray-900 font-medium">
-                            Dark Mode
-                        </div>
-                        <div class="relative">
-                            <input type="checkbox" name="dark-mode" id="dark-toggle" class="checkbox hidden">
-                            <div class="dark-toggle block border-[1px] dark:border-white border-gray-900 w-14 h-8 rounded-full bg-white transition"></div>
-                            <div class="dot absolute left-1 top-1 dark:bg-white bg-gray-800 w-6 h-6 rounded-full transition"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>
+          
 
             <script>
                 const toggle = document.getElementById('dark-toggle');
@@ -110,18 +108,23 @@
             </script>
 
             <!-- User Info -->
-            <div class="mt-auto flex items-center space-x-3 p-4 bg-[#292b3a] rounded-lg">
+            <div class="flex items-center space-x-3">
+    <!-- Foto de perfil -->
+    <img src="{{ asset('R.png') }}" alt="Foto de Arthur Ziliani" class="w-10 h-10 rounded-full">
 
-                <div>
-                    <p class="text-sm font-medium">Arthur Ziliani</p>
-                    <p class="text-xs text-gray-400">Iniciante</p>
-                    <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
-                        <i class="fas fa-sign-out-alt mr-2"></i>
-                        <a href="{{ route('help') }}">SAIR</a>
-                    </li>
-                </div>
+    <!-- Informações do usuário -->
+    <div>
+        <p class="text-sm font-medium">Arthur Ziliani</p>
+        <p class="text-xs text-gray-400">Iniciante</p>
+    </div>
+    <li class="py-2 px-4 rounded hover:bg-purple-500 flex items-center">
+    <i class="fas fa-sign-out-alt mr-2"></i>
+    <a href="{{ route('help') }}">SAIR</a>
+</li>
+</div>
 
-            </div>
+<!-- Botão de saída -->
+
         </aside>
     </div>
     <div class="flex-1 p-6 ml-64">

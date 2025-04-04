@@ -3,10 +3,14 @@
    body {
        height: 100%;
        margin: 0;
-       background-color: #12141D;
+       background-color: white;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    }
-
+   .divider {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
    .content {
        min-height: 100vh;
        display: flex;
@@ -39,7 +43,7 @@
 
 .card-login{
 
-    background-color: rgba(49,46,129);
+    background-color: #2A2D3E;
 }
 
 #sidebar{
@@ -135,6 +139,31 @@
        margin-top: 20px;
        transition: background-color 0.3s ease, transform 0.3s ease;
    }
+
+   .button-form{
+    background-color: rgba(124, 58, 237) ;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+   }
+
+   
+   .button-form:hover {
+    background-color: rgba(99, 46, 190, 1);
+    transform: scale(1.05);
+    color: white;
+}
+   
+.form {
+  
+  color: white;
+
+}
 
    .button-link:hover {
        background-color: rgba(99, 46, 190, 1);
