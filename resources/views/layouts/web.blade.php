@@ -23,43 +23,43 @@
         <!-- Sidebar -->
         <aside id="sidebar" class="bg-indigo-950 w-64 text-white p-4 space-y-6 fixed inset-y-0 left-0">
             <!-- Logo -->
-            <div class="text-2xl font-bold text-purple-400">ZILIANIX</div>
+            <div class="text-2xl font-bold text-purple-400"><img class="w-25" src="{{ asset('Logo.png') }}"alt="MEXC Logo"></div>
 
             <!-- Menu -->
             <ul class="space-y-4 mt-6">
-                <li class="w-full py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('home ') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button w-full py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('home ') ? 'bg-purple-700' : 'hover:bg-Amber-300' }}">
                     <a href="{{ route('home') }} " class="block w-full"><i class="fas fa-th-large mr-2"></i>Dashboard</a>
                 </li>
 
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('operation') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('operation') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="{{ route('operation') }}" class="block w-full"><i class="fas fa-exchange-alt mr-2"></i>Operação</a>
                 </li>
 
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('arbitration') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('arbitration') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="{{ route('arbitration') }}" class="block w-full"> <i class="fas fa-university mr-2"></i> Arbitragem</a>
                 </li>
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('wallet') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('wallet') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="wallet" class="block w-full"> <i class="fas fa-wallet mr-2"></i> Carteira</a>
                 </li>
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('signatures') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('signatures') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="{{ route('signatures') }}" class="block w-full"> <i class="fas fa-chart-line mr-2"></i> Assinaturas</a>
                 </li>
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('account') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('account') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="account" class="block w-full"> <i class="fas fa-user mr-2"></i> Conta</a>
                 </li>
                 <li class="divider"></li>
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('configurations') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('configurations') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="configurations" class="block w-full"> <i class="fas fa-cogs mr-2"></i> Configuração</a>
                 </li>
-                <li class="py-2 px-4 rounded flex items-center 
-                    {{ request()->routeIs('help') ? 'bg-purple-700' : 'hover:bg-purple-500' }}">
+                <li class="sider-button py-1 px-4 rounded flex items-center 
+                    {{ request()->routeIs('help') ? 'bg-purple-700' : 'hover:bg-amber-300' }}">
                     <a href="{{ route('help') }}" class="block w-full"> <i class="fas fa-question-circle mr-2"></i>Ajuda</a>
                 </li>
                 <div class="toggle-bg">
@@ -101,8 +101,8 @@
                 const toggle = document.getElementById('dark-toggle');
                 const container = document.querySelector('.dark-toggle');
                 toggle.addEventListener('change', () => {
-                    container.style.backgroundColor = toggle.checked ? '#1D1D41' : 'white';
-                    document.body.style.backgroundColor = toggle.checked ? '#12141D' : 'white';
+                    container.style.backgroundColor = toggle.checked ? '#242424' : 'white';
+                    document.body.style.backgroundColor = toggle.checked ? '#242424' : 'white';
 
                 });
             </script>
