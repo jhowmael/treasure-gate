@@ -101,8 +101,8 @@
                 const toggle = document.getElementById('dark-toggle');
                 const container = document.querySelector('.dark-toggle');
                 toggle.addEventListener('change', () => {
-                    container.style.backgroundColor = toggle.checked ? '#242424' : 'white';
-                    document.body.style.backgroundColor = toggle.checked ? '#242424' : 'white';
+                    container.style.backgroundColor = toggle.checked ? '#E0AB40' : 'white';
+                    document.body.style.backgroundColor = toggle.checked ? '#1a1a1a' : '#fcffa4';
 
                 });
             </script>
