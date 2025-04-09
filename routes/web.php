@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\AcessController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\MercadoPagoController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\WalletController;
 
 Route::get('/', [WebController::class, 'home'])->name('home');
 Route::get('/arbitration', [WebController::class, 'arbitration'])->name('arbitration');
@@ -31,7 +32,7 @@ Route::post('/logout', function () {
 
 Route::post('/monthly-checkout', [MercadoPagoController::class, 'monthlyCheckout'])->name('monthly-checkout');
 Route::post('/yearly-checkout', [MercadoPagoController::class, 'yearlyCheckout'])->name('yearly-checkout');
-
+Route::post('/wallet/update', [WalletController::class, 'update'])->name('wallet.update');
 Route::post('/webhook', [MercadoPagoController::class, 'webhook'])
     ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class])->name('webhook');
 

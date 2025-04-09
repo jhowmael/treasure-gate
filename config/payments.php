@@ -3,12 +3,15 @@
 return [
 
     'values' => [
-        'monthly' => 130,
-        'yearly' => 1000,
+        'weekly' => 23,
+        'monthly' => 166,
+        'yearly' => 2000,
     ], 
 
     'typesByValue' => [
-        130.00 => 'monthly',
-        1000.00 => 'yearly'
+        22.99 => 'weekly',
+        165.99 => 'monthly',
+        2000.00 => 'yearly'
+        
     ],    
 ];

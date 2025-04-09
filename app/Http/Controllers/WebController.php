@@ -6,10 +6,25 @@ use App\Http\Controllers\Controller;
 
 class WebController extends Controller
 {
-    public function home()
-    {
-        return view('home');
-    }
+
+        public function home()
+        {
+            // Simulando os dados que a view espera
+            $walletData = [
+                'mexc' => 1245.50,
+                'gate' => 932.25
+            ];
+    
+            $latestOperation = [
+                'bancaInicial' => 1000,
+                'lucroFinal' => 18.75,
+                'entryProfit' => 3.2,
+                'exitProfit' => 15.55
+            ];
+    
+            return view('home', compact('walletData', 'latestOperation'));
+        }
+    
 
     public function arbitration()
     {

@@ -11,13 +11,62 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+    function showAlert(message, type = 'success') {
+        const alertBox = document.getElementById('customAlert');
+        const alertMessage = document.getElementById('alertMessage');
+
+        // Reset classes
+        alertBox.className = "hidden fixed top-4 right-4 z-50 w-full max-w-sm rounded-lg shadow-lg p-4 flex items-start gap-3 animate-fade-in text-white";
+
+        // Define cor de fundo
+        if (type === 'success') {
+            alertBox.classList.add('bg-green-500');
+        } else if (type === 'error') {
+            alertBox.classList.add('bg-red-500');
+        } else if (type === 'warning') {
+            alertBox.classList.add('bg-yellow-500');
+        }
+
+        alertMessage.innerText = message;
+        alertBox.classList.remove('hidden');
+
+        // Oculta depois de 3 segundos
+        setTimeout(() => {
+            alertBox.classList.add('hidden');
+        }, 3000);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('lucroChart').getContext('2d');
+    const lucroChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+            datasets: [{
+                label: 'Lucro ($)',
+                data: [100, 150, 130, 170, 200, 250], // Pode vir via PHP ou AJAX
+                borderColor: '#10B981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+
 </head>
-
-<style>
-
-
-</style>
-
+@stack('scripts')
 <body>
     <div class="flex">
         <!-- Sidebar -->

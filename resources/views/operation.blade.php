@@ -1,8 +1,7 @@
 @extends('layouts.web')
 
-@section('content')
-    <h1>Operação de Arbitragem</h1>
 
+@section('content')
     <div class="arbitrage-card" style="width: 350px; padding: 15px;">
         <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
         <p class="font-bold text-gray-50"><span id="currencyPairText"></span></p>
@@ -20,7 +19,7 @@
                     <label class="flex items-center mb-2 mt-2 space-x-2 text-center" for="sellPriceEntry"><img class="w-7 mr-1 h-7" src="{{ asset('mexc-logo.svg') }}"alt="MEXC Logo">Venda (Entrada) MEXC:</label>
                     <input type="number" id="sellPriceEntry" class="form-control form-control w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" step="any" style="font-size: 14px;" step="any" style="font-size: 14px;">
                 </div>
-                <button type="submit" class="btn btn-primary mt-5 bg-purple-500 text-white py-2 px-6 rounded-lg" style="font-size: 14px;">Atualizar</button>
+                <button type="submit" class="button-link btn btn-primary mt-5 bg-purple-500 text-white py-2 px-6 rounded-lg" style="font-size: 14px;">Atualizar</button>
             </form>
 
             <div class="price-info mt-3">
@@ -50,8 +49,8 @@
                 <p id="exitProfit"></p>
                 <p id="arbitrageResult"></p>
             </div>
-            <x-buttons.submit label="Enviar Formulário" id="endOperationButton" />
-            <!---<button id="endOperationButton" class="btn btn-primary mt-2 bg-indigo-500 text-white py-2 px-4 rounded-lg">Encerrar Operação</button>--->
+            
+            <button id="endOperationButton" class="button-link btn btn-primary mt-2 bg-indigo-500 text-white py-2 px-4 rounded-lg">Encerrar Operação</button>
         </div>
     </div>
 
@@ -98,13 +97,13 @@
                     document.getElementById('sellPriceEntryMacx').textContent = updatedSellPrice.toFixed(4);
 
                     // Exibe uma mensagem de sucesso
-                    alert('Preços atualizados com sucesso!');
+                    showAlert('Preços atualizados com sucesso!','success');
 
                     // Chama a função para atualizar os dados de preços
                     updateTickers(clickedCurrencyPair, updatedBuyPrice, updatedSellPrice);
                 } else {
                     // Alerta caso os valores não sejam válidos
-                    alert('Por favor, insira ambos os preços de compra e venda válidos.');
+                    showAlert('Por favor, insira ambos os preços de compra e venda válidos.','error');
                 }
             });
 
@@ -208,7 +207,7 @@
             // Esconde o card da página
             document.querySelector('.arbitrage-card').style.display = 'none';
 
-            alert('Operação encerrada. Aguardando nova arbitragem...');
+            showAlert('Operação encerrada. Aguardando nova arbitragem...','success');
 
             // Limpa os valores do formulário e dos resultados
             document.getElementById('buyPriceEntry').value = '';
@@ -232,6 +231,11 @@
         }, 10000); // Atualização a cada 10 segundos
     </script>
 
+<div id="customAlert" class="hidden fixed top-4 right-4 z-50 w-full max-w-sm bg-green-500 text-white rounded-lg shadow-lg p-4 flex items-start gap-3 animate-fade-in">
+    
+    <p id="alertMessage" class="text-sm font-medium leading-snug">Mensagem de sucesso aqui!</p>
+</div>
+
     <style>
         /* Adicionando animações de piscamento para o ponto */
         @keyframes blinkingGreen {
@@ -252,5 +256,13 @@
             border-radius: 50%;
             background-color: gray;
         }
+
+        @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
     </style>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.web')
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 @section('content')
-    <h1 class="text-3xl font-bold mb-6">Arbitragem</h1>
+    
 
     <div id="arbitrage-results" class="ticker-container">
         <!-- Os resultados de arbitragem serão exibidos aqui -->
@@ -9,7 +9,10 @@
 
     <div id="error-message" class="error"></div>
 
-    <div id="loading-message" class="loading">Carregando dados...</div>
+    <div id="loading-message" class=" inset-0 flex items-center justify-center">
+  <img src="loading.gif" alt="Carregando..." class="w-12" />
+</div>
+
 
     <!-- Incluir a biblioteca JQuery para facilitar a requisição AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
